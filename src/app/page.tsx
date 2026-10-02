@@ -5,17 +5,17 @@ import PropuestaCard from "@/components/PropuestaCard";
 
 const proyectos = [
   {
-    nombre: "Bilbao",
-    ciudad: "Hermosillo",
-    descripcion: "Residencial con diseño contemporáneo y acabados de alta calidad en el corazón de Hermosillo.",
+    nombre: "Bilbao Residencial",
+    ciudad: "Hermosillo, Sonora",
+    descripcion: "Espacios funcionales dentro de una comunidad consolidada, pensados para aprovechar mejor cada momento de tu día.",
     href: "/proyectos/bilbao",
     imagen: "/imagenes/Bilbao/BILBAO-PORTADA.png",
     etiqueta: "Hermosillo",
   },
   {
-    nombre: "Tarragona",
-    ciudad: "Nogales",
-    descripcion: "Proyecto residencial moderno pensado para quienes buscan calidad de vida en Nogales.",
+    nombre: "Tarragona Residencial",
+    ciudad: "Nogales, Sonora",
+    descripcion: "Un entorno residencial donde tu hogar se complementa con espacios para convivir, disfrutar y crecer en familia.",
     href: "/proyectos/tarragona",
     imagen: "/imagenes/TARRAGONA-PORTADA.png",
     etiqueta: "Nogales",
@@ -124,9 +124,12 @@ export default function HomePage() {
             Groen Inmobiliaria
           </p>
           <h1 className="font-[family-name:var(--font-nunito)] text-5xl md:text-7xl font-normal text-white leading-tight mb-6">
-            Tu hogar ideal
-            <span className="block text-white">te está esperando</span>
+            Creamos espacios para
+            <span className="block text-white">construir tu futuro.</span>
           </h1>
+          <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+            Desarrollamos comunidades pensadas para vivir, crecer y disfrutar cada etapa de tu vida.
+          </p>
 
           {/* Ver proyectos */}
           <a
@@ -134,7 +137,7 @@ export default function HomePage() {
             className="absolute -bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group"
           >
             <span className="text-white/80 text-sm font-medium tracking-widest uppercase group-hover:text-white transition-colors">
-              Ver proyectos
+              Conoce nuestros proyectos
             </span>
             <div className="animate-bounce">
               <svg className="w-5 h-5 text-white/70 group-hover:text-groen-green transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -150,13 +153,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div id="proyectos" className="text-center mb-16 scroll-mt-30">
             <p className="text-groen-green font-semibold tracking-widest uppercase text-sm mb-3">
-              Nuestros desarrollos
+              Proyectos Groen
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-groen-dark">
-              Proyectos Groen
+              Encuentra tu espacio para crecer.
             </h2>
             <p className="mt-4 text-groen-gray text-lg max-w-2xl mx-auto">
-              Dos desarrollos únicos en las ciudades más importantes de Sonora.
+              Conoce nuestros desarrollos residenciales en Sonora y descubre una comunidad pensada para tu estilo de vida.
             </p>
           </div>
 
@@ -181,20 +184,19 @@ export default function HomePage() {
           {/* Texto */}
           <div className="w-full md:w-1/2">
             <h2 className="text-4xl md:text-5xl font-light text-groen-dark leading-tight mb-6">
-              Te ayudamos a encontrar{" "}
-              <span className="text-groen-green-dark font-bold">el hogar ideal</span>{" "}
-              para ti
+              Tu nuevo hogar empieza con{" "}
+              <span className="text-groen-green-dark font-bold">una buena decisión.</span>
             </h2>
             <p className="text-groen-gray text-lg leading-relaxed mb-8">
-              Conoce los distintos <span className="font-semibold text-groen-dark">créditos hipotecarios y opciones de financiamiento</span> a los que puedes acceder con la guía de nuestros asesores.
+              Nuestro equipo te acompaña para conocer las opciones disponibles y encontrar el hogar que mejor se adapte a ti y a tu familia.
             </p>
             <a
-              href="https://wa.me/526629487134?text=Hola%2C%20me%20gustar%C3%ADa%20hablar%20con%20un%20asesor."
+              href="https://wa.me/526671040239?text=Hola%2C%20me%20gustar%C3%ADa%20hablar%20con%20un%20asesor."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-groen-green-dark text-white px-8 py-4 rounded-lg font-semibold text-sm tracking-widest uppercase hover:opacity-90 transition-all duration-200 hover:scale-105"
             >
-              Hablar con un asesor
+              Habla con un asesor
             </a>
           </div>
         </div>
@@ -208,10 +210,11 @@ export default function HomePage() {
               Por qué elegirnos
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-groen-dark">
-              Construimos más que casas
+              Construimos más que casas.
+              <span className="block text-groen-green-dark">Creamos comunidad.</span>
             </h2>
             <p className="mt-4 text-groen-gray text-lg max-w-2xl mx-auto">
-              Cada proyecto Groen nace con el compromiso de entregarte un hogar que supere tus expectativas.
+              Cada desarrollo Groen nace pensando en las personas que lo convertirán en hogar: espacios funcionales, entornos para convivir y comunidades diseñadas para crecer contigo.
             </p>
           </div>
 
@@ -223,6 +226,15 @@ export default function HomePage() {
                 priority={p.imagen === "/imagenes/UBICACION-GROEN.jpg"}
               />
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/nosotros"
+              className="inline-flex items-center gap-2 border-2 border-groen-dark text-groen-dark px-8 py-4 rounded-full font-semibold text-sm tracking-widest uppercase hover:bg-groen-dark hover:text-white transition-all duration-200 hover:scale-105"
+            >
+              Conoce Groen
+            </Link>
           </div>
         </div>
       </section>
@@ -236,30 +248,26 @@ export default function HomePage() {
       <section className="py-24 px-6 bg-white relative overflow-hidden">
 <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-groen-dark mb-5">
-            ¿Listo para encontrar tu hogar?
+            Tu siguiente etapa puede comenzar aquí.
           </h2>
           <p className="text-groen-gray text-lg mb-10 max-w-2xl mx-auto">
-            Nuestro equipo está listo para asesorarte sin compromisos.
-            Contáctanos hoy y da el primer paso hacia tu nuevo hogar.
+            Conoce nuestros desarrollos y encuentra el espacio que quieres convertir en hogar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/526629487134?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20proyectos."
+              href="#proyectos"
+              className="inline-flex items-center justify-center gap-2 bg-groen-green-dark text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-200 hover:scale-105"
+            >
+              Conoce nuestros proyectos
+            </a>
+            <a
+              href="https://wa.me/526671040239?text=Hola%2C%20me%20gustar%C3%ADa%20hablar%20con%20un%20asesor."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 border-2 border-groen-dark text-groen-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-groen-dark hover:text-white transition-all duration-200 hover:scale-105"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
-                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-              </svg>
-              WhatsApp
+              Habla con un asesor
             </a>
-            <Link
-              href="/contacto"
-              className="inline-flex items-center gap-2 border-2 border-groen-dark text-groen-dark px-8 py-4 rounded-full font-semibold text-lg hover:bg-groen-dark hover:text-white transition-all duration-200 hover:scale-105"
-            >
-              Enviar mensaje
-            </Link>
           </div>
         </div>
       </section>
@@ -322,7 +330,7 @@ export default function HomePage() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="https://wa.me/526629487134"
+                  href="https://wa.me/526671040239?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GROEN%20Inmobiliaria."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-groen-green transition-colors flex items-center gap-2"
@@ -331,7 +339,7 @@ export default function HomePage() {
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                     <path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L0 24l6.335-1.508A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0zm.001 21.818a9.817 9.817 0 01-5.001-1.368l-.36-.214-3.724.977.995-3.634-.234-.374A9.819 9.819 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
                   </svg>
-                  662 948 7134
+                  667 104 0239
                 </a>
               </li>
               <li>

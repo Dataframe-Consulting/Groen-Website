@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,12 +13,34 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Cerrar el dropdown al hacer clic fuera o presionar Escape
+  useEffect(() => {
+    if (!dropdownOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setDropdownOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [dropdownOpen]);
 
   return (
     <header
@@ -50,16 +72,23 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {/* Dropdown Proyectos */}
-          <div className="relative group">
+          <div className="relative" ref={dropdownRef}>
             <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={dropdownOpen}
+              onClick={() => setDropdownOpen((open) => !open)}
               className={`flex items-center gap-1 font-medium transition-colors ${
                 scrolled ? "text-groen-dark hover:text-groen-green" : "text-white hover:text-groen-green"
               }`}
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
             >
               Proyectos
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -69,8 +98,6 @@ export default function Navbar() {
               className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-200 ${
                 dropdownOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
               }`}
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
             >
               {Object.entries(proyectos).map(([ciudad, items]) => (
                 <div key={ciudad}>
@@ -81,6 +108,7 @@ export default function Navbar() {
                     <Link
                       key={p.href}
                       href={p.href}
+                      onClick={() => setDropdownOpen(false)}
                       className="block px-4 py-2 text-groen-dark hover:bg-groen-green-light hover:text-groen-green transition-colors"
                     >
                       {p.nombre}
@@ -100,8 +128,17 @@ export default function Navbar() {
             Nosotros
           </Link>
 
+          <Link
+            href="/contacto"
+            className={`font-medium transition-colors ${
+              scrolled ? "text-groen-dark hover:text-groen-green" : "text-white hover:text-groen-green"
+            }`}
+          >
+            Contacto
+          </Link>
+
           <a
-            href="https://wa.me/526629487134?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20proyectos."
+            href="https://wa.me/526671040239?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20GROEN%20Inmobiliaria."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-medium hover:opacity-90 transition-all"

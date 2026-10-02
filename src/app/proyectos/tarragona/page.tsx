@@ -2,57 +2,62 @@ import Image from "next/image";
 import ModeloCard from "@/components/ModeloCard";
 
 export const metadata = {
-  title: "Bilbao Residencial | Groen Inmobiliaria",
+  title: "Tarragona Residencial | Groen Inmobiliaria",
   description:
-    "Bilbao Residencial — tu espacio para crecer en Hermosillo, Sonora. Espacios funcionales, mayor privacidad y una vida más cómoda para ti y tu familia.",
+    "Tarragona Residencial — tu hogar también se vive afuera. Una comunidad en Nogales, Sonora, con espacios para convivir, disfrutar y crecer en familia.",
 };
 
 /*
-  Modelos según "GROEN Optimización de contenidos Web · V1.2".
-  El documento deja las especificaciones como [X]. Begoña y Viscaya conservan
-  los datos que ya teníamos; Málaga queda pendiente (badge "Datos por confirmar").
+  ⚠️ PROTOTIPOS — DATOS POR CONFIRMAR
+  --------------------------------------------------------------------------
+  Nombres según "GROEN Optimización de contenidos Web · V1.2" (Cambrils, Reus,
+  Tarragones). El documento deja recámaras, baños y m² como [X], así que cada
+  tarjeta lleva `pending: true` (badge "Datos por confirmar").
+  La foto asignada a cada prototipo también está por confirmar.
 */
 const modelos = [
   {
-    nombre: "Begoña",
-    m2Construccion: "69.50",
-    recamaras: 2,
-    banos: 2,
-    imagen: "/imagenes/Bilbao/Begona-Fachada.jpg",
-  },
-  {
-    nombre: "Málaga",
-    imagen: "/imagenes/Bilbao/Malaga-Fachada.jpg",
+    nombre: "Cambrils",
+    imagen: "/imagenes/Tarragona/Modelo-A.png",
     pending: true,
   },
   {
-    nombre: "Viscaya",
-    m2Construccion: "96.80",
-    recamaras: 3,
-    banos: 2.5,
-    imagen: "/imagenes/Bilbao/Viscaya-Fachada.jpg",
+    nombre: "Reus",
+    imagen: "/imagenes/Tarragona/Modelo-B.png",
+    pending: true,
+  },
+  {
+    nombre: "Tarragones",
+    imagen: "/imagenes/Tarragona/Modelo-C.png",
+    pending: true,
   },
 ];
 
 const amenidades = [
-  "Área de alberca",
-  "Jardines y áreas verdes",
-  "Seguridad 24/7",
-  "Acceso controlado",
-  "Estacionamiento techado",
-  "Alumbrado LED",
-  "Vialidades pavimentadas",
-  "Red de agua y drenaje",
+  "Áreas verdes",
+  "Dog Park",
+  "Cancha de soccer",
+  "Áreas de ejercicio",
+  "Terrazas sociales",
+  "Cancha de pádel (próximamente)",
 ];
 
-export default function BilbaoPage() {
+// Renders ilustrativos de la nueva cancha de pádel
+const galeriaPadel = [
+  { src: "/imagenes/Tarragona/padel/padel-04.jpg", alt: "Vista aérea de la nueva cancha de pádel en Tarragona" },
+  { src: "/imagenes/Tarragona/padel/padel-06.jpg", alt: "Partido en la nueva cancha de pádel de Tarragona" },
+  { src: "/imagenes/Tarragona/padel/padel-02.jpg", alt: "Terraza social con asador junto a la cancha de pádel" },
+  { src: "/imagenes/Tarragona/padel/padel-07.jpg", alt: "Pérgola con vista a la cancha de pádel" },
+];
+
+export default function TarragonaPage() {
   return (
     <>
       {/* ── HERO ── */}
       <section className="relative flex items-end justify-start overflow-hidden rounded-b-3xl mx-6 mt-0" style={{ height: "95vh" }}>
         <Image
-          src="/imagenes/Bilbao/BILBAO-HERO.png"
-          alt="Residencial Bilbao"
+          src="/imagenes/Tarragona/TARRAGONA-PORTADA.png"
+          alt="Residencial Tarragona"
           fill
           sizes="100vw"
           className="object-cover"
@@ -62,22 +67,22 @@ export default function BilbaoPage() {
 
         <div className="relative z-20 px-8 pb-20 max-w-7xl mx-auto w-full">
           <p className="text-groen-green font-semibold tracking-widest uppercase text-sm mb-3">
-            Hermosillo, Sonora
+            Nogales, Sonora
           </p>
           <h1 className="font-[family-name:var(--font-nunito)] text-6xl md:text-8xl font-bold text-white leading-none mb-6">
-            Bilbao <span className="font-light">Residencial</span>
+            Tarragona <span className="font-light">Residencial</span>
           </h1>
           <p className="text-white text-2xl font-semibold max-w-xl mb-3">
-            Tu espacio para crecer en Hermosillo.
+            Tu hogar también se vive afuera.
           </p>
           <p className="text-white/80 text-lg max-w-xl mb-8">
-            Una comunidad pensada para disfrutar espacios funcionales, mayor privacidad y una vida más cómoda para ti y tu familia.
+            Una comunidad en Nogales donde tu casa se complementa con espacios para convivir, disfrutar y crecer en familia.
           </p>
           <a
             href="#proyecto"
             className="inline-flex items-center gap-2 bg-groen-green text-white px-8 py-4 rounded-full font-semibold text-sm tracking-widest uppercase hover:opacity-90 transition-all duration-200 hover:scale-105"
           >
-            Conoce Bilbao
+            Conoce Tarragona
           </a>
         </div>
       </section>
@@ -91,18 +96,18 @@ export default function BilbaoPage() {
               El proyecto
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-groen-dark leading-tight mb-6">
-              Una casa pensada para la vida real.
+              Una comunidad pensada más allá de tu casa.
             </h2>
             <p className="text-groen-gray text-lg leading-relaxed">
-              En Bilbao Residencial cada espacio tiene un propósito. Hogares diseñados para aprovechar mejor cada metro y una comunidad donde puedes comenzar tu siguiente etapa.
+              En Tarragona Residencial, tu espacio continúa después de la puerta. Vive en un entorno planeado para disfrutar más momentos con tu familia y formar parte de una verdadera comunidad.
             </p>
           </div>
 
-          {/* Imagen — agregar después */}
+          {/* Imagen */}
           <div className="relative h-96 rounded-2xl overflow-hidden">
             <Image
-              src="/imagenes/Bilbao/BILBAO-VIVE.png"
-              alt="Residencial Bilbao"
+              src="/imagenes/Tarragona/TARRAGONA-INTERIOR.png"
+              alt="Interior de casa en Residencial Tarragona"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -110,40 +115,50 @@ export default function BilbaoPage() {
           </div>
         </div>
 
-        {/* Stats */}
+        {/* Indicadores — ⚠️ el documento V1.2 los deja como [NÚMERO / DATO OFICIAL] */}
         <div className="max-w-7xl mx-auto mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-100 pt-16">
           {[
-            { valor: "01", label: "Casas de 1 y 2 plantas" },
-            { valor: "02", label: "Privadas de aproximadamente 25 viviendas" },
-            { valor: "03", label: "Comunidad consolidada" },
-            { valor: "04", label: "Opciones de financiamiento" },
+            { valor: "01", label: "Dato por confirmar" },
+            { valor: "02", label: "Dato por confirmar" },
+            { valor: "03", label: "Dato por confirmar" },
+            { valor: "04", label: "Dato por confirmar" },
           ].map((s) => (
-            <div key={s.label} className="text-center">
+            <div key={s.valor} className="text-center">
               <p className="text-4xl font-bold text-groen-green mb-1">{s.valor}</p>
               <p className="text-groen-dark font-medium">{s.label}</p>
             </div>
           ))}
         </div>
+        <p className="max-w-7xl mx-auto mt-6 text-center text-xs text-amber-600">
+          * Indicadores pendientes de datos oficiales de Tarragona.
+        </p>
       </section>
 
       {/* ── MODELOS ── */}
       <section className="py-24 px-6 bg-[#f9fafb]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <p className="text-groen-green font-semibold tracking-widest uppercase text-sm mb-3">
-              Modelos de vivienda
+              Prototipos
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-groen-dark">
-              Encuentra el espacio ideal para ti.
+              Encuentra el hogar para tu siguiente etapa.
             </h2>
             <p className="mt-4 text-groen-gray text-lg max-w-2xl mx-auto">
-              Conoce nuestros tres modelos de vivienda y encuentra el hogar que mejor se adapte a tu estilo de vida.
+              Conoce nuestros tres prototipos y encuentra los espacios que mejor se adapten a ti y a tu familia.
             </p>
+          </div>
+
+          {/* Aviso de contenido placeholder */}
+          <div className="mx-auto mb-12 max-w-2xl rounded-xl border border-amber-300 bg-amber-50 px-5 py-4 text-center text-sm text-amber-800">
+            <span className="font-semibold">Datos por confirmar.</span> Las especificaciones (recámaras, baños y m²)
+            y la foto de cada prototipo están{" "}
+            <span className="font-semibold">pendientes de datos oficiales</span> de Tarragona.
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {modelos.map((m) => (
-              <ModeloCard key={m.nombre} m={m} />
+              <ModeloCard key={m.nombre} m={m} proyecto="Tarragona" />
             ))}
           </div>
         </div>
@@ -157,10 +172,10 @@ export default function BilbaoPage() {
               Galería
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-groen-dark">
-              Conoce Bilbao
+              Descubre Tarragona
             </h2>
             <p className="mt-4 text-groen-gray text-lg max-w-2xl mx-auto">
-              Descubre los espacios, detalles y ambientes que forman parte de la vida en Bilbao Residencial.
+              Conoce los espacios, amenidades y ambientes que hacen de Tarragona un lugar para disfrutar dentro y fuera de casa.
             </p>
           </div>
 
@@ -168,8 +183,8 @@ export default function BilbaoPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <div className="relative col-span-2 h-72 rounded-2xl overflow-hidden">
               <Image
-                src="/imagenes/Bilbao/galeria/10.png"
-                alt="Familias en Residencial Bilbao"
+                src="/imagenes/Tarragona/galeria/10.png"
+                alt="Áreas verdes y área de eventos en Residencial Tarragona"
                 fill
                 sizes="(max-width: 768px) 100vw, 66vw"
                 className="object-cover"
@@ -177,8 +192,8 @@ export default function BilbaoPage() {
             </div>
             <div className="relative h-72 rounded-2xl overflow-hidden">
               <Image
-                src="/imagenes/Bilbao/galeria/9.png"
-                alt="Interior de casa en Bilbao"
+                src="/imagenes/Tarragona/galeria/13.png"
+                alt="Interior de casa en Tarragona"
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover"
@@ -186,8 +201,8 @@ export default function BilbaoPage() {
             </div>
             <div className="relative h-52 rounded-2xl overflow-hidden">
               <Image
-                src="/imagenes/Bilbao/galeria/8.png"
-                alt="Acceso a Residencial Bilbao"
+                src="/imagenes/Tarragona/galeria/11.png"
+                alt="Calle del Residencial Tarragona"
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover"
@@ -195,8 +210,8 @@ export default function BilbaoPage() {
             </div>
             <div className="relative h-52 rounded-2xl overflow-hidden">
               <Image
-                src="/imagenes/Bilbao/galeria/11.png"
-                alt="Vista aérea de Residencial Bilbao"
+                src="/imagenes/Tarragona/galeria/12.png"
+                alt="Cancha de fútbol en Residencial Tarragona"
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover"
@@ -204,12 +219,51 @@ export default function BilbaoPage() {
             </div>
             <div className="relative h-52 rounded-2xl overflow-hidden">
               <Image
-                src="/imagenes/Bilbao/galeria/12.png"
-                alt="Área de juegos en Residencial Bilbao"
+                src="/imagenes/Tarragona/galeria/9.png"
+                alt="Dog park en Residencial Tarragona"
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover"
               />
+            </div>
+          </div>
+
+          {/* Próximamente: cancha de pádel */}
+          <div className="mt-16">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6">
+              <div>
+                <span className="inline-block rounded-full bg-groen-green px-3 py-1 text-xs font-bold uppercase tracking-widest text-white mb-3">
+                  Próximamente
+                </span>
+                <h3 className="text-2xl md:text-3xl font-bold text-groen-dark">
+                  Nueva cancha de pádel
+                </h3>
+              </div>
+              <p className="text-xs text-groen-gray">
+                Imágenes ilustrativas. El proyecto puede cambiar en el tiempo.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="relative col-span-2 h-72 rounded-2xl overflow-hidden">
+                <Image
+                  src="/imagenes/Tarragona/padel/padel-01.jpg"
+                  alt="Nueva cancha de pádel con terraza social en Tarragona"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
+              {galeriaPadel.map((img, i) => (
+                <div key={img.src} className={`relative rounded-2xl overflow-hidden ${i === 0 ? "h-52 md:h-72" : "h-52"}`}>
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -221,8 +275,8 @@ export default function BilbaoPage() {
           {/* Imagen amenidad */}
           <div className="relative h-96 rounded-2xl overflow-hidden order-2 md:order-1">
             <Image
-              src="/imagenes/Bilbao/BILBAO-AMENIDADES.png"
-              alt="Amenidades de Residencial Bilbao"
+              src="/imagenes/Tarragona/TARRAGONA-AMENIDADES.png"
+              alt="Amenidades de Residencial Tarragona"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -234,10 +288,10 @@ export default function BilbaoPage() {
               Amenidades
             </p>
             <h2 className="text-4xl font-bold text-groen-dark mb-4">
-              Espacios para disfrutar todos los días.
+              Más espacios para disfrutar tu comunidad.
             </h2>
             <p className="text-groen-gray text-lg leading-relaxed mb-8">
-              Bilbao complementa tu hogar con espacios pensados para disfrutar tu comunidad y compartir más momentos cerca de casa.
+              Tarragona está pensado para que disfrutes más allá de tu hogar, con áreas para convivir, mantenerte activo y compartir tiempo en familia.
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {amenidades.map((a) => (
@@ -261,18 +315,18 @@ export default function BilbaoPage() {
               Ubicación
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-groen-dark">
-              Conectado con tu día a día.
+              Una ubicación que conecta tu día.
             </h2>
             <p className="mt-4 text-groen-gray text-lg max-w-xl mx-auto">
-              Vive en una zona de Hermosillo que continúa creciendo, con acceso a vialidades y servicios que forman parte de tu vida cotidiana.
+              Vive en Nogales con acceso a vialidades y servicios que te permiten mantenerte conectado con los lugares que forman parte de tu rutina.
             </p>
           </div>
 
-          {/* Mapa */}
+          {/* Mapa — ⚠️ ubicación aproximada de Nogales; falta dirección exacta */}
           <div className="relative h-96 rounded-2xl overflow-hidden shadow-sm">
             <iframe
-              title="Ubicación de Residencial Bilbao"
-              src="https://maps.google.com/maps?q=29.16056,-110.99751&z=16&hl=es&output=embed"
+              title="Ubicación de Residencial Tarragona (aproximada)"
+              src="https://maps.google.com/maps?q=Nogales,+Sonora&z=13&hl=es&output=embed"
               className="w-full h-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -281,7 +335,7 @@ export default function BilbaoPage() {
           </div>
           <div className="mt-6 text-center">
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=29.16056,-110.99751"
+              href="https://www.google.com/maps/search/?api=1&query=Nogales,+Sonora"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border-2 border-groen-dark text-groen-dark px-8 py-4 rounded-full font-semibold text-sm tracking-widest uppercase hover:bg-groen-dark hover:text-white transition-all duration-200 hover:scale-105"
@@ -293,6 +347,9 @@ export default function BilbaoPage() {
               Ver ubicación
             </a>
           </div>
+          <p className="mt-4 text-center text-xs text-amber-600">
+            * Ubicación aproximada (Nogales). Falta la dirección/coordenadas exactas del residencial.
+          </p>
         </div>
       </section>
 
@@ -303,13 +360,13 @@ export default function BilbaoPage() {
             Da el siguiente paso
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Conoce tu próximo hogar en Bilbao.
+            Descubre tu próximo hogar en Tarragona.
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-xl mx-auto">
-            Agenda una visita y descubre los espacios disponibles para ti y tu familia.
+            Agenda una visita y conoce una comunidad diseñada para disfrutar cada etapa de tu vida.
           </p>
           <a
-            href="https://wa.me/526671040239?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20a%20Bilbao%20Residencial."
+            href="https://wa.me/526671040239?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20visita%20a%20Tarragona%20Residencial."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-groen-green text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-200 hover:scale-105"

@@ -1,6 +1,6 @@
 export default function WhatsAppButton() {
-  const phone = "526629487134";
-  const message = encodeURIComponent("Hola, me interesa conocer más sobre sus proyectos.");
+  const phone = "526671040239";
+  const message = encodeURIComponent("Hola, quiero más información sobre GROEN Inmobiliaria.");
 
   return (
     <a

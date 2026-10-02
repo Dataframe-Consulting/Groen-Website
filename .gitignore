@@ -16,3 +16,7 @@ out/
 .DS_Store
 *.pem
 npm-debug.log*
+
+# caches / temporales
+.npm-cache/
+*.tsbuildinfo
